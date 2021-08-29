@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 154171638}
   - component: {fileID: 154171637}
   - component: {fileID: 154171636}
+  - component: {fileID: 154171639}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -160,7 +161,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154171636
 MonoBehaviour:
@@ -205,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 154171637}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 154171639}
+        m_TargetAssemblyTypeName: Transition, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &154171637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +257,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154171634}
   m_CullTransparentMesh: 1
+--- !u!114 &154171639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154171634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a6f8ccc0bcc90458c1ff69ec226b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Game
 --- !u!1 &668721113
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,6 +630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: {fileID: 1798245192}
   playerRig: {fileID: 1798245194}
+  pl: {fileID: 1798245190}
 --- !u!1 &787053250
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +991,7 @@ GameObject:
   - component: {fileID: 1373773642}
   m_Layer: 0
   m_Name: Coroninha
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1137,8 +1164,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -3.8199997}
+  m_SizeDelta: {x: 0, y: -7.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1484100084
 MonoBehaviour:
@@ -1162,11 +1189,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f356f676072b384486b6b3a9473c2b4, type: 3}
-    m_FontSize: 14
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 2
+    m_MaxSize: 203
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1225,6 +1252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ffa8987b2d659644a04d4dae801e913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plIsAlive: 0
+  restartButton: {fileID: 1746803206}
 --- !u!1 &1746803203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,9 +1368,10 @@ GameObject:
   - component: {fileID: 1798245193}
   - component: {fileID: 1798245196}
   - component: {fileID: 1798245195}
+  - component: {fileID: 1798245197}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1484,6 +1514,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plRig: {fileID: 1798245194}
+--- !u!114 &1798245197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798245190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3b565602b90a2449bdd1622b91ec4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
 --- !u!1 &2082902211
 GameObject:
   m_ObjectHideFlags: 0
