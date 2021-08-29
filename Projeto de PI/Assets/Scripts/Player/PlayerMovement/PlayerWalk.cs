@@ -5,23 +5,19 @@ using UnityEngine;
 public class PlayerWalk : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D plRig;
-    void Start()
-    {
-
-    }
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            plRig.velocity = new Vector3(-10, plRig.velocity.y, 0);
+            plRig.velocity = new Vector2(-10, plRig.velocity.y);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            plRig.velocity = new Vector3(10, plRig.velocity.y, 0);
+            plRig.velocity = new Vector2(10, plRig.velocity.y);
         }
         else
         {
-            plRig.velocity = new Vector3(0, plRig.velocity.y, 0);
+            plRig.velocity = new Vector2(0, plRig.velocity.y);
         }
     }
 }
