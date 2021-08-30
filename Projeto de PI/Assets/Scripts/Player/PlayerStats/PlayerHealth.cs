@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     private float hp;
-    public GameManager gm;
+    private GameManager gm;
     private byte count;
     void Start()
     {
