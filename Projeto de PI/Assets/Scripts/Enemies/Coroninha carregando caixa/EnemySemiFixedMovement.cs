@@ -4,48 +4,51 @@ using UnityEngine;
 
 public class EnemySemiFixedMovement : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D enRig;
+    [SerializeField] private Rigidbody2D platRig;
+    [SerializeField] private BoxCollider2D platCol;
+    [SerializeField] private float rightLimit, leftLimit, startingDirection;
+    [SerializeField] private GameObject player;
     private bool goingRight, goingLeft;
     void Update()
     {
         if (goingLeft == true)
         {
-            enRig.velocity = new Vector2(-4, 0);
-            enRig.transform.rotation = Quaternion.Euler(0, 180, 0);
+            platRig.velocity = new Vector2(-6, 0);
+            platRig.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else if (goingRight == true)
         {
-            enRig.velocity = new Vector2(4, 0);
-            enRig.transform.rotation = Quaternion.Euler(0, 0, 0);
+            platRig.velocity = new Vector2(6, 0);
+            platRig.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else
         {
-            enRig.velocity = new Vector2(-4, 0);
-            enRig.transform.rotation = Quaternion.Euler(0, 180, 0);
+            platRig.velocity = new Vector2(startingDirection, 0);
+            platRig.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 	private void FixedUpdate()
 	{
-		if(enRig.transform.position.x > 70)
+		if(platRig.transform.position.x > rightLimit)
 		{
             goingLeft = true;
             goingRight = false;
 		}
-	}
-	private void OnCollisionEnter2D(Collision2D collision)
-    {
-        foreach (ContactPoint2D hitContact in collision.contacts)
+        else if (platRig.transform.position.x < leftLimit)
         {
-            if (hitContact.normal.x > 0)
-            {
-                goingLeft = false;
-                goingRight = true;
-            }
-            else if (hitContact.normal.x < 0)
-            {
-                goingRight = false;
-                goingLeft = true;
-            }
+            goingLeft = false;
+            goingRight = true;
         }
     }
+	private void OnCollisionEnter2D(Collision2D otherCol)
+	{
+        if(otherCol.gameObject == player)
+		{
+            player.transform.parent = transform;
+		}
+	}
+	private void OnCollisionExit2D(Collision2D otherCol)
+	{
+        player.transform.parent = null;
+	}
 }
