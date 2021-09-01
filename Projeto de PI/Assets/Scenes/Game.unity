@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 39599869}
   - component: {fileID: 39599868}
   - component: {fileID: 39599870}
+  - component: {fileID: 39599867}
   m_Layer: 0
   m_Name: Coroninha carregando caixa
   m_TagString: Untagged
@@ -222,12 +223,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39599863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.37, y: -0.81, z: 0}
+  m_LocalPosition: {x: 36, y: -0.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &39599867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39599863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7602b324a4dcbd41a8f9831106ecaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1798245190}
 --- !u!61 &39599868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -284,13 +298,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 39599863}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fc7aaf0eaffcb243af2382b06573333, type: 3}
+  m_Script: {fileID: 11500000, guid: f39e6f9e2b7e19f41ae94546a380e187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platRig: {fileID: 39599869}
   rightLimit: 49
   leftLimit: 36
-  player: {fileID: 1798245190}
   goingRight: 1
   goingLeft: 0
 --- !u!1 &154171634
@@ -881,7 +894,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &792928648
 GameObject:
@@ -1012,7 +1025,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &966167156
 GameObject:
@@ -1143,7 +1156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1045612343
 GameObject:
@@ -1438,7 +1451,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1373773636
 GameObject:
@@ -1543,7 +1556,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1373773640
 CircleCollider2D:
@@ -1812,7 +1825,7 @@ RectTransform:
   m_Children:
   - {fileID: 154171635}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1904,7 +1917,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1798245193
 BoxCollider2D:
@@ -2004,6 +2017,7 @@ GameObject:
   - component: {fileID: 1874229637}
   - component: {fileID: 1874229636}
   - component: {fileID: 1874229635}
+  - component: {fileID: 1874229634}
   - component: {fileID: 1874229633}
   m_Layer: 0
   m_Name: Coroninha carregando caixa (1)
@@ -2021,13 +2035,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1874229632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fc7aaf0eaffcb243af2382b06573333, type: 3}
+  m_Script: {fileID: 11500000, guid: e7602b324a4dcbd41a8f9831106ecaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1798245190}
+--- !u!114 &1874229634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874229632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39e6f9e2b7e19f41ae94546a380e187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platRig: {fileID: 1874229636}
-  rightLimit: 67
+  rightLimit: 65
   leftLimit: 52
-  player: {fileID: 1798245190}
   goingRight: 0
   goingLeft: 1
 --- !u!61 &1874229635
@@ -2155,7 +2181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874229632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 52.18, y: -0.82, z: 0}
+  m_LocalPosition: {x: 65, y: -0.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2225,5 +2251,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

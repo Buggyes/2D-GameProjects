@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySemiFixedMovement : MonoBehaviour
+public class PlatformMovementScript : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D platRig;
     [SerializeField] private float rightLimit, leftLimit;
@@ -20,13 +20,13 @@ public class EnemySemiFixedMovement : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
     }
-	private void FixedUpdate()
-	{
-		if(platRig.transform.position.x > rightLimit)
-		{
+    private void FixedUpdate()
+    {
+        if (platRig.transform.position.x > rightLimit)
+        {
             goingLeft = true;
             goingRight = false;
-		}
+        }
         else if (platRig.transform.position.x < leftLimit)
         {
             goingLeft = false;
