@@ -5,26 +5,18 @@ using UnityEngine;
 public class EnemySemiFixedMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D platRig;
-    [SerializeField] private BoxCollider2D platCol;
-    [SerializeField] private float rightLimit, leftLimit, startingDirection;
+    [SerializeField] private float rightLimit, leftLimit;
     [SerializeField] private GameObject player;
-    private bool goingRight, goingLeft;
+    [SerializeField] private bool goingRight, goingLeft;
     void Update()
     {
         if (goingLeft == true)
         {
-            platRig.velocity = new Vector2(-6, 0);
-            platRig.transform.rotation = Quaternion.Euler(0, 180, 0);
+            platRig.transform.Translate(Vector2.left * (Time.deltaTime * 6));
         }
         else if (goingRight == true)
         {
-            platRig.velocity = new Vector2(6, 0);
-            platRig.transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else
-        {
-            platRig.velocity = new Vector2(startingDirection, 0);
-            platRig.transform.rotation = Quaternion.Euler(0, 180, 0);
+            platRig.transform.Translate(Vector2.right * (Time.deltaTime * 6));
         }
     }
 	private void FixedUpdate()
