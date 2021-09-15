@@ -6,6 +6,7 @@ public class PlayerMobility : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D plRig;
     [SerializeField] private Animator an;
+    [SerializeField] Animation jump;
     private bool ableToJump, ableToDJump;
 	private void Start()
 	{
