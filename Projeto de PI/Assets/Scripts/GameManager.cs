@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         if(timer > spawnrate)
 		{
             spawnrate = (timer + cd);
-            Vector2 spawnPos = new Vector2(165, (float)0.5);
+            Vector2 spawnPos = new Vector2(165, 1);
             Instantiate(flyingEn, spawnPos, new Quaternion());
 		}
         if(plIsAlive == false)
