@@ -16,9 +16,9 @@ public class UpgradeButtonsScript : MonoBehaviour
 	{
 		FindObjectOfType<_GameManager>().UpgradeClickMultiplier();
 	}
-	public void HealthPointsButton()
+	public void AutoClickValueButton()
 	{
-		FindObjectOfType<_GameManager>().UpgradeHealthPoints();
+		FindObjectOfType<_GameManager>().UpgradeAutoClickValue();
 	}
 	public void PlayerButton()
 	{
