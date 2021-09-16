@@ -13,6 +13,10 @@ public class _GameManager : MonoBehaviour
     {
         
     }
+    public void PlayerClick()
+	{
+        print("Ok player click");
+	}
     public void UpgradeAutoClick()
     {
         print("Ok Auto Click");

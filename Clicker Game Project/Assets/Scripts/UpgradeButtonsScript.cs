@@ -20,4 +20,8 @@ public class UpgradeButtonsScript : MonoBehaviour
 	{
 		FindObjectOfType<_GameManager>().UpgradeHealthPoints();
 	}
+	public void PlayerButton()
+	{
+		FindObjectOfType<_GameManager>().PlayerClick();
+	}
 }
