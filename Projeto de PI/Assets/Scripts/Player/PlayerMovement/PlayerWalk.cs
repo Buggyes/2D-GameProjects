@@ -14,13 +14,13 @@ public class PlayerWalk : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            plRig.transform.Translate(Vector2.left * (Time.deltaTime * 8));
+            plRig.transform.Translate(Vector2.left * (Time.deltaTime * 10));
             an.SetBool("IsWalking", true);
             GetComponent<SpriteRenderer>().flipX = true;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            plRig.transform.Translate(Vector2.right * (Time.deltaTime * 8));
+            plRig.transform.Translate(Vector2.right * (Time.deltaTime * 10));
             an.SetBool("IsWalking", true);
             GetComponent<SpriteRenderer>().flipX = false;
         }
