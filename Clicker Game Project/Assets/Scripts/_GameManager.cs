@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class _GameManager : MonoBehaviour
 {
-    private float autoClick, autoClickValue, clickValue, clickMult, money, acCost, acvCost, cvCost, cmCost, targetHp, timer, punchRate;
+    private float autoClick, autoClickValue, clickValue, clickMult, money, acCost, acvCost, cvCost, cmCost, timer, punchRate;
     void Start()
     {
         acCost = 20;
@@ -12,7 +12,7 @@ public class _GameManager : MonoBehaviour
         cvCost = 10;
         cmCost = 100;
         autoClick = 0;
-        autoClickValue = (float)0.5;
+        autoClickValue = 1;
         clickValue = 1;
         clickMult = 0;
         money = 0;
@@ -62,7 +62,7 @@ public class _GameManager : MonoBehaviour
 
             clickValue += 1;
             money -= cvCost;
-            cvCost += (cvCost * (float)0.10);
+            cvCost += (cvCost * (float)0.20);
 		}
 		else
 		{
@@ -75,7 +75,7 @@ public class _GameManager : MonoBehaviour
 		{
             clickMult += (float)0.01;
             money -= cmCost;
-            cmCost += (cmCost * (float)0.10);
+            cmCost += (cmCost * (float)0.50);
         }
 		else
 		{
@@ -88,11 +88,16 @@ public class _GameManager : MonoBehaviour
 		{
             autoClickValue += (autoClickValue * (float)0.5);
             money -= acvCost;
-            acvCost += (acvCost * (float)0.10);
+            acvCost += (acvCost * (float)0.20);
         }
         else
 		{
             print("ce n tem denero");
 		}
     }
+    public float SetMoney(float mon)
+	{
+        mon = money;
+        return mon;
+	}
 }

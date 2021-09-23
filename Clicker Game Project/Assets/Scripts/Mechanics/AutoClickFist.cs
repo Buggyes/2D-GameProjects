@@ -5,7 +5,7 @@ using UnityEngine;
 public class AutoClickFist : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D fistRig;
-    [SerializeField] private GameObject fist;
+    [SerializeField] private GameObject fist, plank, glass;
     private bool punched;
     void Start()
     {
@@ -17,6 +17,7 @@ public class AutoClickFist : MonoBehaviour
         {
             punched = false;
             fist.transform.position = new Vector2(-7, 1);
+            fistRig.velocity = new Vector2(0, 0);
         }
     }
     private void OnCollisionEnter2D(Collision2D col)
@@ -28,6 +29,6 @@ public class AutoClickFist : MonoBehaviour
     }
     public void Ora()
     {
-        fistRig.velocity = new Vector2(80, 0);
+        fistRig.velocity = new Vector2(70, 0);
     }
 }
