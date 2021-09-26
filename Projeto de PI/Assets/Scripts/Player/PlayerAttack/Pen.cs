@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Pen : MonoBehaviour
 {
-    private PlayerWalk pw;
+    private PlayerWalkAndAttack pw;
     [SerializeField] private Rigidbody2D penRig;
     void Start()
     {
-        pw = GameObject.Find("Player").GetComponent<PlayerWalk>();
+        pw = GameObject.Find("Player").GetComponent<PlayerWalkAndAttack>();
         if(pw.isFacingRight == true)
 		{
             GetComponent<SpriteRenderer>().flipX = false;

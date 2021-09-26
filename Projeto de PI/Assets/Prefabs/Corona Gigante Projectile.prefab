@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 914777499566361159}
   - component: {fileID: 8699487530919018704}
   - component: {fileID: -1198806310197561178}
+  - component: {fileID: -5991534416510373271}
   m_Layer: 0
   m_Name: Corona Gigante Projectile
   m_TagString: Enemy
@@ -156,3 +157,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enRig: {fileID: 914777499566361159}
   limit: 210
+--- !u!114 &-5991534416510373271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054071884797966343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350c48205ccf33c4987b8f4ea854527d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enHp: 2

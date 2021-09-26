@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerWalk : MonoBehaviour
+public class PlayerWalkAndAttack : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D plRig;
     [SerializeField] private GameObject rightAtkPoint, leftAtkPoint;
     [SerializeField] private Animator an;
     [SerializeField] private GameObject pen;
     public bool isFacingRight;
-
-	private void Start()
-	{
+    private float timer, cd, atkDelay;
+    private void Start()
+    {
+        atkDelay = 0;
+        cd = (float) 0.5;
         isFacingRight = true;
         an.GetComponent<Animator>();
         rightAtkPoint.transform.parent = transform;
         leftAtkPoint.transform.parent = transform;
     }
-	void Update()
+    void Update()
     {
+        timer = Time.time;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             plRig.transform.Translate(Vector2.left * (Time.deltaTime * 10));
@@ -34,22 +37,23 @@ public class PlayerWalk : MonoBehaviour
             isFacingRight = true;
         }
         else
-		{
+        {
             an.SetBool("IsWalking", false);
         }
-        if(Input.GetKeyDown(KeyCode.Space))
-		{
-            switch(isFacingRight)
-			{
-                case true:
-                    an.SetTrigger("IsAttacking");
-                    Instantiate(pen, rightAtkPoint.transform.position, new Quaternion());
-                    break;
-                case false:
-                    an.SetTrigger("IsAttacking");
-                    Instantiate(pen, leftAtkPoint.transform.position, new Quaternion());
-                    break;
-			}
-		}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isFacingRight == true && timer > atkDelay)
+            {
+                atkDelay = timer + cd;
+                an.SetTrigger("IsAttacking");
+                Instantiate(pen, rightAtkPoint.transform.position, new Quaternion());
+            }
+            else if (isFacingRight == false && timer > atkDelay)
+            {
+                atkDelay = timer + cd;
+                an.SetTrigger("IsAttacking");
+                Instantiate(pen, leftAtkPoint.transform.position, new Quaternion());
+            }
+        }
     }
 }
