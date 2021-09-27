@@ -20,7 +20,7 @@ public class AttackPattern : MonoBehaviour
         if(pl.transform.position.x >= 210 && timer > atkSpeed && atkdFromTheTop == false)
 		{
             atkSpeed = timer + atkCd;
-            Vector2 spawnPos = new Vector2(249, 5);
+            Vector2 spawnPos = new Vector2(253, 5);
             Instantiate(minion, spawnPos, new Quaternion());
             atkdFromTheTop = true;
             an.SetTrigger("Attack");
@@ -28,7 +28,7 @@ public class AttackPattern : MonoBehaviour
         else if (pl.transform.position.x >= 210 && timer > atkSpeed && atkdFromTheTop == true)
         {
             atkSpeed = timer + atkCd;
-            Vector2 spawnPos = new Vector2(249, -2);
+            Vector2 spawnPos = new Vector2(253, -2);
             Instantiate(minion, spawnPos, new Quaternion());
             atkdFromTheTop = false;
             an.SetTrigger("Attack");
