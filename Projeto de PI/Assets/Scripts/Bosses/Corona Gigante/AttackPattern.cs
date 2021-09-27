@@ -11,7 +11,7 @@ public class AttackPattern : MonoBehaviour
     void Start()
     {
         an.GetComponent<Animator>();
-        atkCd = 2;
+        atkCd = (float)1.5;
         atkSpeed = 0;
     }
     void Update()
