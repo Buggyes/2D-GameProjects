@@ -145,3 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   penRig: {fileID: 5773443678150014486}
+  plRig: {fileID: 0}
