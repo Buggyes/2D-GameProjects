@@ -5,9 +5,13 @@ using UnityEngine;
 public class EnemyHp : MonoBehaviour
 {
     [SerializeField] private float enHp;
+    [SerializeField] private bool isABoss;
+    private float hBar;
+    private HealthBarScript hb;
     void Start()
     {
         gameObject.SetActive(true);
+        hBar = 1;
     }
     void Update()
     {
@@ -25,9 +29,16 @@ public class EnemyHp : MonoBehaviour
     }
     public void DamageEn()
 	{
-        if(enHp > 0)
+        if(enHp > 0 && isABoss == false)
 		{
             enHp--;
 		}
-	}
+        else if (enHp > 0 && isABoss == true)
+        {
+            enHp--;
+            hBar -= 0.10f;
+            hb = GameObject.Find("BossHealthBar").GetComponent<HealthBarScript>();
+            hb.SetSize(hBar);
+        }
+    }
 }
