@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject flyingEn, pl, cg, brickWall;
     [SerializeField] private Canvas restartButton, nextStageButton;
     private float timer, spawnrate, cd;
-    private PlayerMobility pm;
+    private PlayerJump pj;
     private bool isFighting;
     void Start()
     {
@@ -39,8 +39,8 @@ public class GameManager : MonoBehaviour
         }
         if(cg.activeInHierarchy == false)
 		{
-            pm = GameObject.Find("Player").GetComponent<PlayerMobility>();
-            pm.ableToMove = false;
+            pj = GameObject.Find("Player").GetComponent<PlayerJump>();
+            pj.ableToMove = false;
             NextStage();
 		}
     }
