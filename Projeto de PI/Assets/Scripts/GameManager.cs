@@ -5,15 +5,18 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private bool plIsAlive;
-    [SerializeField] private GameObject flyingEn, pl;
-    [SerializeField] private Canvas restartButton;
+    [SerializeField] private GameObject flyingEn, pl, cg, brickWall;
+    [SerializeField] private Canvas restartButton, nextStageButton;
     private float timer, spawnrate, cd;
+    private PlayerMobility pm;
+    private bool isFighting;
     void Start()
     {
         spawnrate = 0;
         cd = 2;
         plIsAlive = true;
         restartButton.gameObject.SetActive(false);
+        nextStageButton.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -28,9 +31,25 @@ public class GameManager : MonoBehaviour
 		{
             restartButton.gameObject.SetActive(true);
 		}
+        if(pl.transform.position.x >= 210 && isFighting == false)
+		{
+            Vector2 spawnPos = new Vector2(200, (float)5.25);
+            Instantiate(brickWall, spawnPos, new Quaternion());
+            isFighting = true;
+        }
+        if(cg.activeInHierarchy == false)
+		{
+            pm = GameObject.Find("Player").GetComponent<PlayerMobility>();
+            pm.ableToMove = false;
+            NextStage();
+		}
     }
     public void SetDeath()
 	{
         plIsAlive = false;
+	}
+    private void NextStage()
+	{
+        nextStageButton.gameObject.SetActive(true);
 	}
 }

@@ -20,6 +20,13 @@ public class Pen : MonoBehaviour
             penRig.velocity = new Vector2(-20, 0);
         }
     }
+	private void Update()
+	{
+		if(penRig.position.x > (pw.plRig.position.x+25))
+		{
+            Destroy(gameObject);
+		}
+	}
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
         Destroy(gameObject);
