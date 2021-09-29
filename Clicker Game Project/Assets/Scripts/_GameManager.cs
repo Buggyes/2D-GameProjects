@@ -41,13 +41,9 @@ public class _GameManager : MonoBehaviour
             acCost += acCost*(float)0.10;
             money -= acCost;
 		}
-        else if(autoClick == 0.1)
-		{
-            autoClick = (float)0.1;
-		}
         else if(money >= acCost)
 		{
-            autoClick -= (float)0.1;
+            autoClick -= (autoClick * (float)0.1);
             money -= acCost;
         }
 		else

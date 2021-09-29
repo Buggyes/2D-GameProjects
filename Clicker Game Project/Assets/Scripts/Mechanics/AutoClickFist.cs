@@ -16,7 +16,7 @@ public class AutoClickFist : MonoBehaviour
         if (punched == true)
         {
             punched = false;
-            fist.transform.position = new Vector2(-7, 1);
+            fist.transform.position = new Vector3(-7, 1, 88);
             fistRig.velocity = new Vector2(0, 0);
         }
     }
