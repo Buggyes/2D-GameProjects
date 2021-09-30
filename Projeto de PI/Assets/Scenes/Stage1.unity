@@ -768,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a6f8ccc0bcc90458c1ff69ec226b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Game
+  sceneName: Stage1
 --- !u!1 &154660500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a6f8ccc0bcc90458c1ff69ec226b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Stage1
+  sceneName: Stage2
 --- !u!1 &487530896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,7 +1636,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.31764707, g: 0.31764707, b: 0.31764707, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3332,6 +3332,7 @@ MonoBehaviour:
   brickWall: {fileID: 3665173428087054361, guid: ec9cdc55cf03088408e16cd560d0d2b1, type: 3}
   restartButton: {fileID: 1746803206}
   nextStageButton: {fileID: 656477014}
+  stage: 1
 --- !u!1 &1692328787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3615,6 +3616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plRig: {fileID: 1798245194}
   an: {fileID: 1798245198}
+  jumpStr: 15
   ableToMove: 1
 --- !u!114 &1798245196
 MonoBehaviour:
@@ -3676,8 +3678,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2b7e0c1b806d345bf7419a235c10a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plRig: {fileID: 1798245194}
   an: {fileID: 1798245198}
+  moveSpeed: 12
+  plRig: {fileID: 1798245194}
   isFacingRight: 1
 --- !u!1 &1874229632
 GameObject:

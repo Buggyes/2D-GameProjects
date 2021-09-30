@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private bool plIsAlive;
     [SerializeField] private GameObject flyingEn, pl, cg, brickWall;
     [SerializeField] private Canvas restartButton, nextStageButton;
+    [SerializeField] private int stage;
     private float timer, spawnrate, cd;
     private PlayerJump pj;
-    private bool isFighting;
+    private bool isFighting, plIsAlive;
     void Start()
     {
         spawnrate = 0;
@@ -20,28 +20,41 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        timer = Time.time;
-        if(timer > spawnrate && pl.transform.position.x >= 78)
+        switch(stage)
 		{
-            spawnrate = (timer + cd);
-            Vector2 spawnPos = new Vector2(165, 1);
-            Instantiate(flyingEn, spawnPos, new Quaternion());
-		}
-        if(plIsAlive == false)
-		{
-            restartButton.gameObject.SetActive(true);
-		}
-        if(pl.transform.position.x >= 210 && isFighting == false)
-		{
-            Vector2 spawnPos = new Vector2(200, (float)5.25);
-            Instantiate(brickWall, spawnPos, new Quaternion());
-            isFighting = true;
-        }
-        if(cg.activeInHierarchy == false)
-		{
-            pj = GameObject.Find("Player").GetComponent<PlayerJump>();
-            pj.ableToMove = false;
-            NextStage();
+            case 1:
+                timer = Time.time;
+                if (timer > spawnrate && pl.transform.position.x >= 78)
+                {
+                    spawnrate = (timer + cd);
+                    Vector2 spawnPos = new Vector2(165, 1);
+                    Instantiate(flyingEn, spawnPos, new Quaternion());
+                }
+                if (plIsAlive == false)
+                {
+                    restartButton.gameObject.SetActive(true);
+                }
+                if (pl.transform.position.x >= 210 && isFighting == false)
+                {
+                    Vector2 spawnPos = new Vector2(200, (float)5.25);
+                    Instantiate(brickWall, spawnPos, new Quaternion());
+                    isFighting = true;
+                }
+                if (cg.activeInHierarchy == false)
+                {
+                    pj = GameObject.Find("Player").GetComponent<PlayerJump>();
+                    pj.ableToMove = false;
+                    NextStage();
+                }
+                break;
+            case 2:
+                if(plIsAlive == false)
+				{
+                    restartButton.gameObject.SetActive(true);
+                }
+                break;
+            default:
+                break;
 		}
     }
     public void SetDeath()

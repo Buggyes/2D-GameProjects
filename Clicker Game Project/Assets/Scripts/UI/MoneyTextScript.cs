@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class MoneyTextScript : MonoBehaviour
 {
+    [SerializeField] private Text mon;
     private float moneyQtt = 0;
-    [SerializeField]private Text mon;
     private _GameManager gm;
     void Start()
     {

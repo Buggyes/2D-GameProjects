@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PW : MonoBehaviour
 {
+    [SerializeField] private float moveSpeed;
     public Rigidbody2D plRig;
-    private PJ pj;
     public bool isFacingRight;
+    private PJ pj;
     private void Start()
     {
         isFacingRight = true;
@@ -18,13 +19,13 @@ public class PW : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                plRig.transform.Translate(Vector2.left * (Time.deltaTime * 10));
+                plRig.transform.Translate(Vector2.left * (Time.deltaTime * moveSpeed));
                 GetComponent<SpriteRenderer>().flipX = true;
                 isFacingRight = false;
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
-                plRig.transform.Translate(Vector2.right * (Time.deltaTime * 10));
+                plRig.transform.Translate(Vector2.right * (Time.deltaTime * moveSpeed));
                 GetComponent<SpriteRenderer>().flipX = false;
                 isFacingRight = true;
             }

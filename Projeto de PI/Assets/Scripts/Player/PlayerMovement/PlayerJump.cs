@@ -6,6 +6,7 @@ public class PlayerJump : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D plRig;
     [SerializeField] private Animator an;
+    [SerializeField] private float jumpStr;
     private bool ableToJump, ableToDJump;
     public bool ableToMove;
     private void Start()
@@ -18,7 +19,7 @@ public class PlayerJump : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.UpArrow) && ableToJump == true)
             {
-                plRig.velocity = new Vector2(plRig.velocity.x, 15);
+                plRig.velocity = new Vector2(plRig.velocity.x, jumpStr);
                 FindObjectOfType<AudioManager>().PlaySound("PlayerJump");
                 ableToJump = false;
                 ableToDJump = true;
@@ -26,7 +27,7 @@ public class PlayerJump : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow) && ableToDJump == true)
             {
-                plRig.velocity = new Vector2(plRig.velocity.x, 15);
+                plRig.velocity = new Vector2(plRig.velocity.x, jumpStr);
                 FindObjectOfType<AudioManager>().PlaySound("PlayerJump");
                 ableToDJump = false;
                 an.SetBool("IsJumping", false);

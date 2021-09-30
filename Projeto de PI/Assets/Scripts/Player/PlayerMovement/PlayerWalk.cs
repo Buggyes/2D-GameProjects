@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerWalk : MonoBehaviour
 {
-    public Rigidbody2D plRig;
     [SerializeField] private Animator an;
+    [SerializeField] private float moveSpeed;
+    public Rigidbody2D plRig;
     private PlayerJump pm;
     public bool isFacingRight;
     private void Start()
@@ -20,14 +21,14 @@ public class PlayerWalk : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                plRig.transform.Translate(Vector2.left * (Time.deltaTime * 10));
+                plRig.transform.Translate(Vector2.left * (Time.deltaTime * moveSpeed));
                 an.SetBool("IsWalking", true);
                 GetComponent<SpriteRenderer>().flipX = true;
                 isFacingRight = false;
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
-                plRig.transform.Translate(Vector2.right * (Time.deltaTime * 10));
+                plRig.transform.Translate(Vector2.right * (Time.deltaTime * moveSpeed));
                 an.SetBool("IsWalking", true);
                 GetComponent<SpriteRenderer>().flipX = false;
                 isFacingRight = true;
