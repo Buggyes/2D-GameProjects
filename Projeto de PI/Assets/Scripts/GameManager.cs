@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int stage;
     private float timer, spawnrate, cd;
     private PlayerJump pj;
+    private PlayerAttack pa;
     private bool isFighting, plIsAlive;
     void Start()
     {
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour
                 if (cg.activeInHierarchy == false)
                 {
                     pj = GameObject.Find("Player").GetComponent<PlayerJump>();
+                    pa = GameObject.Find("Player").GetComponent<PlayerAttack>();
+                    pa.ableToAttack = false;
                     pj.ableToMove = false;
                     NextStage();
                 }

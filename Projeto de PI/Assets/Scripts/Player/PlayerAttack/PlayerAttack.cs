@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject rightAtkPoint, leftAtkPoint;
     [SerializeField] private Animator an;
     [SerializeField] private GameObject pen;
-    [SerializeField] private bool ableToAttack;
+    public bool ableToAttack;
     private PlayerWalk pw;
     private float timer, cd, atkDelay;
     private void Start()
