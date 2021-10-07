@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour
+public class Cronometer : MonoBehaviour
 {
     [SerializeField] private Text timerTxt;
     [SerializeField] private float timer;
@@ -16,17 +16,21 @@ public class Timer : MonoBehaviour
     void Update()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        if(timer > 0)
-		{
+        if (timer > 0)
+        {
             timer -= Time.deltaTime;
             timerDisplay = Mathf.Round(timer);
             timerTxt.text = "Time: " + timerDisplay;
         }
-		else
-		{
+        else
+        {
             timerDisplay = 0;
             timerTxt.text = "Time: " + timerDisplay;
             gm.SetDeath();
-		}
+        }
+    }
+    public void AddTime(float addAmount)
+    {
+        timer += addAmount;
     }
 }

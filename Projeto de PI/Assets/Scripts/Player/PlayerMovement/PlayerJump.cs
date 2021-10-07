@@ -7,11 +7,15 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private Rigidbody2D plRig;
     [SerializeField] private Animator an;
     [SerializeField] private float jumpStr;
+    [SerializeField] private bool hasAnimator;
     private bool ableToJump, ableToDJump;
     public bool ableToMove;
     private void Start()
     {
-        an.GetComponent<Animator>();
+        if(hasAnimator == true)
+		{
+            an.GetComponent<Animator>();
+        }
     }
     void Update()
     {
@@ -23,15 +27,21 @@ public class PlayerJump : MonoBehaviour
                 FindObjectOfType<AudioManager>().PlaySound("PlayerJump");
                 ableToJump = false;
                 ableToDJump = true;
-                an.SetBool("IsJumping", true);
+                if(hasAnimator == true)
+				{
+                    an.SetBool("IsJumping", true);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow) && ableToDJump == true)
             {
                 plRig.velocity = new Vector2(plRig.velocity.x, jumpStr);
                 FindObjectOfType<AudioManager>().PlaySound("PlayerJump");
                 ableToDJump = false;
-                an.SetBool("IsJumping", false);
-                an.SetBool("IsJumping", true);
+                if (hasAnimator == true)
+				{
+                    an.SetBool("IsJumping", false);
+                    an.SetBool("IsJumping", true);
+                }
             }
         }
     }
@@ -43,7 +53,10 @@ public class PlayerJump : MonoBehaviour
             {
                 ableToJump = true;
                 ableToDJump = false;
-                an.SetBool("IsJumping", false);
+                if(hasAnimator == true)
+				{
+                    an.SetBool("IsJumping", false);
+                }
             }
         }
     }

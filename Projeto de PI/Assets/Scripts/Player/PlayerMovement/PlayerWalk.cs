@@ -6,13 +6,17 @@ public class PlayerWalk : MonoBehaviour
 {
     [SerializeField] private Animator an;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private bool hasAnimator;
     public Rigidbody2D plRig;
     private PlayerJump pm;
     public bool isFacingRight;
     private void Start()
     {
         isFacingRight = true;
-        an.GetComponent<Animator>();
+        if (hasAnimator == true)
+        {
+            an.GetComponent<Animator>();
+        }
     }
     void Update()
     {
@@ -22,20 +26,29 @@ public class PlayerWalk : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 plRig.transform.Translate(Vector2.left * (Time.deltaTime * moveSpeed));
-                an.SetBool("IsWalking", true);
+                if(hasAnimator == true)
+				{
+                    an.SetBool("IsWalking", true);
+                }
                 GetComponent<SpriteRenderer>().flipX = true;
                 isFacingRight = false;
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
                 plRig.transform.Translate(Vector2.right * (Time.deltaTime * moveSpeed));
-                an.SetBool("IsWalking", true);
+                if (hasAnimator == true)
+                {
+                    an.SetBool("IsWalking", true);
+                }
                 GetComponent<SpriteRenderer>().flipX = false;
                 isFacingRight = true;
             }
             else
             {
-                an.SetBool("IsWalking", false);
+                if (hasAnimator == true)
+                {
+                    an.SetBool("IsWalking", false);
+                }
             }
         }
     }

@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
                 }
                 if (pl.transform.position.x >= 210 && isFighting == false)
                 {
-                    Vector2 spawnPos = new Vector2(200, (float)5.25);
+                    Vector2 spawnPos = new Vector2(200, (float)8);
                     Instantiate(brickWall, spawnPos, new Quaternion());
                     isFighting = true;
                 }
@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
                 if(plIsAlive == false)
 				{
                     restartButton.gameObject.SetActive(true);
+                    pj = GameObject.Find("Player").GetComponent<PlayerJump>();
+                    pj.ableToMove = false;
                 }
                 break;
             default:
