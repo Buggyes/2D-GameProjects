@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enRig: {fileID: 914777499566361159}
   limit: 210
-  speed: -17
+  speed: -12
 --- !u!114 &-5991534416510373271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,5 +170,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350c48205ccf33c4987b8f4ea854527d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enHp: 2
+  enHp: 3
   isABoss: 0

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         spawnrate = 0;
-        cd = 2;
+        cd = 2.5f;
         plIsAlive = true;
         restartButton.gameObject.SetActive(false);
         nextStageButton.gameObject.SetActive(false);

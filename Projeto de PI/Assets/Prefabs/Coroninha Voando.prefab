@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enRig: {fileID: 6465099645106150252}
   limit: 65
-  speed: -10
+  speed: -7
 --- !u!114 &-4919069021326063780
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,22 +5,18 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform follow;
-    private float maxNegY;
+    [SerializeField] private float maxNegY;
     [SerializeField] private Rigidbody2D playerRig;
     [SerializeField] private GameObject pl;
-    private void Start()
-	{
-        maxNegY = 0;
-	}
-	void FixedUpdate()
+	void Update()
     {
-        if(playerRig.transform.position.y <= 0)
-		{
-            this.transform.position = new Vector3(follow.position.x, maxNegY, this.transform.position.z);
-        }
-        else if(playerRig.transform.position.y > 0)
+        if(playerRig.transform.position.y > 0)
 		{
             this.transform.position = new Vector3(follow.position.x, follow.position.y, this.transform.position.z);
+        }
+        else if(playerRig.transform.position.y <= 0)
+		{
+            this.transform.position = new Vector3(follow.position.x, maxNegY, this.transform.position.z);
         }
         else
 		{
