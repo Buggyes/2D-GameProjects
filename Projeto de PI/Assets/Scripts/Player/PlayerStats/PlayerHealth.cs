@@ -13,9 +13,9 @@ public class PlayerHealth : MonoBehaviour
     }
     void Update()
     {
-        if(hp <= 0)
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (hp <= 0)
 		{
-            gm = GameObject.Find("GameManager").GetComponent<GameManager>();
             gm.SetDeath();
             gameObject.SetActive(false);
 		}

@@ -54,8 +54,11 @@ public class GameManager : MonoBehaviour
                 if(plIsAlive == false)
 				{
                     restartButton.gameObject.SetActive(true);
-                    pj = GameObject.Find("Player").GetComponent<PlayerJump>();
-                    pj.ableToMove = false;
+                    if(pl.activeInHierarchy == true)
+					{
+                        pj = GameObject.Find("Player").GetComponent<PlayerJump>();
+                        pj.ableToMove = false;
+                    }
                 }
                 break;
             default:

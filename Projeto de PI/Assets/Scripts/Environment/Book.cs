@@ -10,9 +10,9 @@ public class Book : MonoBehaviour
     private Cronometer timeM;
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        timeM = timerTxt.GetComponent<Cronometer>();
         if (collision.gameObject.tag.Equals("Player"))
         {
-            timeM = timerTxt.GetComponent<Cronometer>();
             timeM.AddTime(addAmount);
             Destroy(gameObject);
         }
