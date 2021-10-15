@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8336632642300965444}
   - component: {fileID: 914777499566361159}
   - component: {fileID: 8699487530919018704}
-  - component: {fileID: -1198806310197561178}
   - component: {fileID: -5991534416510373271}
+  - component: {fileID: 1131970812662448293}
   m_Layer: 0
   m_Name: Corona Gigante Projectile
   m_TagString: Enemy
@@ -143,21 +143,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-1198806310197561178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6054071884797966343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215f0aeb804480a4c96860b420f59400, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enRig: {fileID: 914777499566361159}
-  limit: 210
-  speed: -12
 --- !u!114 &-5991534416510373271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,3 +157,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enHp: 3
   isABoss: 0
+--- !u!114 &1131970812662448293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054071884797966343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fca04db541d1714a9a9d7f693b82cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enRig: {fileID: 914777499566361159}
+  limit: 190
+  speed: -7
