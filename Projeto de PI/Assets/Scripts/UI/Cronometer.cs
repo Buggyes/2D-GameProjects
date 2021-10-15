@@ -16,17 +16,20 @@ public class Cronometer : MonoBehaviour
     void Update()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        if (timer > 0)
+        if (gm.endedTheStage == false)
         {
-            timer -= Time.deltaTime;
-            timerDisplay = Mathf.Round(timer);
-            timerTxt.text = "Time: " + timerDisplay;
-        }
-        else
-        {
-            timerDisplay = 0;
-            timerTxt.text = "Time: " + timerDisplay;
-            gm.SetDeath();
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+                timerDisplay = Mathf.Round(timer);
+                timerTxt.text = "Time: " + timerDisplay;
+            }
+            else
+            {
+                timerDisplay = 0;
+                timerTxt.text = "Time: " + timerDisplay;
+                gm.SetDeath();
+            }
         }
     }
     public void AddTime(float addAmount)

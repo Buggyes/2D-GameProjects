@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject flyingEn, pl, cg, brickWall;
+    [SerializeField] private GameObject pl, cg, brickWall;
     [SerializeField] private Canvas restartButton, nextStageButton;
     [SerializeField] private int stage;
-    private float timer, spawnrate, cd;
     private PlayerJump pj;
     private PlayerAttack pa;
     private bool isFighting, plIsAlive;
+    public bool endedTheStage;
     void Start()
     {
-        spawnrate = 0;
-        cd = 2.5f;
         plIsAlive = true;
+        endedTheStage = false;
         restartButton.gameObject.SetActive(false);
         nextStageButton.gameObject.SetActive(false);
     }
@@ -24,13 +23,6 @@ public class GameManager : MonoBehaviour
         switch(stage)
 		{
             case 1:
-                timer = Time.time;
-                if (timer > spawnrate && pl.transform.position.x >= 78)
-                {
-                    spawnrate = (timer + cd);
-                    Vector2 spawnPos = new Vector2(165, 1);
-                    Instantiate(flyingEn, spawnPos, new Quaternion());
-                }
                 if (plIsAlive == false)
                 {
                     restartButton.gameObject.SetActive(true);
@@ -60,6 +52,13 @@ public class GameManager : MonoBehaviour
                         pj.ableToMove = false;
                     }
                 }
+                if (pl.transform.position.x >= 770 && endedTheStage == false)
+				{
+                    nextStageButton.gameObject.SetActive(true);
+                    pj = GameObject.Find("Player").GetComponent<PlayerJump>();
+                    pj.ableToMove = false;
+                    endedTheStage = true;
+				}
                 break;
             default:
                 break;
