@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject pl, cg, brickWall;
+    [SerializeField] private GameObject pl, cg, brickWall, bossHpBar;
     [SerializeField] private Canvas restartButton, nextStageButton;
     [SerializeField] private int stage;
     private PlayerJump pj;
@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
         endedTheStage = false;
         restartButton.gameObject.SetActive(false);
         nextStageButton.gameObject.SetActive(false);
+        bossHpBar.SetActive(false);
     }
     void Update()
     {
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
                     Vector2 spawnPos = new Vector2(200, (float)8);
                     Instantiate(brickWall, spawnPos, new Quaternion());
                     isFighting = true;
+                    bossHpBar.SetActive(true);
                 }
                 if (cg.activeInHierarchy == false)
                 {
